@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Home Plan • Strength + Yoga + Cardio</title>
+<title>Home Plan • Yoga + Strength + Cardio</title>
 <style>
   :root{
     --bg: #fdecef;
@@ -68,16 +68,11 @@
     font-size:1.05rem;
     color:var(--accent);
   }
-  .hr{
-    height:1px;
-    background:linear-gradient(90deg, transparent, var(--accent2), transparent);
-    margin:10px 0;
-  }
 
   .weekgrid{
     display:grid;
     grid-template-columns: 1fr;
-    gap:10px;
+    gap:12px;
   }
   @media (min-width:720px){
     .weekgrid{ grid-template-columns: 1fr 1fr; }
@@ -85,46 +80,45 @@
 
   .day{
     border:1px solid rgba(168,50,94,0.12);
-    border-radius:14px;
+    border-radius:16px;
     padding:12px;
     background:rgba(253,236,239,0.35);
   }
   .dayhead{
     display:flex;
-    align-items:baseline;
+    align-items:flex-start;
     justify-content:space-between;
     gap:10px;
     margin-bottom:6px;
   }
   .dow{
-    font-weight:700;
+    font-weight:800;
     color:var(--accent);
+    font-size:1.02rem;
   }
   .tag{
-    font-size:0.80rem;
+    font-size:0.82rem;
     color:var(--muted);
+    margin-top:2px;
+    text-align:right;
   }
-  .items{
-    margin:0;
-    padding-left:18px;
-  }
-  .items li{ margin:5px 0; }
 
   .checkline{
     display:flex;
-    align-items:flex-start;
+    align-items:center;
     gap:10px;
-    margin:8px 0;
+    margin:8px 0 6px;
   }
   input[type="checkbox"]{
-    transform: translateY(2px) scale(1.15);
+    transform: translateY(1px) scale(1.15);
     accent-color: var(--accent);
   }
+
   .btnrow{
     display:flex;
     flex-wrap:wrap;
     gap:10px;
-    margin-top:10px;
+    margin-top:12px;
   }
   button{
     border:1px solid rgba(168,50,94,0.25);
@@ -132,7 +126,7 @@
     color:var(--accent);
     padding:9px 12px;
     border-radius:12px;
-    font-weight:600;
+    font-weight:700;
     cursor:pointer;
   }
   button:active{ transform:scale(0.99); }
@@ -142,7 +136,7 @@
     border-radius:14px;
     padding:10px 12px;
     background:#fff;
-    margin:10px 0;
+    margin:10px 0 0;
   }
   details[open]{ background:rgba(253,236,239,0.25); }
   summary{
@@ -153,28 +147,12 @@
     outline:none;
   }
   summary::-webkit-details-marker{ display:none; }
-  .small{ color:var(--muted); font-size:0.92rem; margin:8px 0 0; }
 
-  .workout{
-    margin-top:10px;
-    padding-top:8px;
-    border-top:1px dashed rgba(168,50,94,0.25);
-  }
-  .workout h3{
-    margin:10px 0 6px;
-    font-size:0.98rem;
-    color:#7a2948;
-  }
-  .setnote{
-    color:var(--muted);
-    font-size:0.90rem;
-    margin:0 0 8px;
-  }
-  .list{
-    margin:0;
-    padding-left:18px;
-  }
+  .small{ color:var(--muted); font-size:0.92rem; margin:8px 0 0; }
+  .setnote{ color:var(--muted); font-size:0.90rem; margin:8px 0; }
+  .list{ margin:0; padding-left:18px; }
   .list li{ margin:6px 0; }
+
   .hint{
     background:rgba(168,50,94,0.06);
     border:1px solid rgba(168,50,94,0.12);
@@ -182,6 +160,7 @@
     border-radius:12px;
     color:var(--muted);
     font-size:0.92rem;
+    margin-top:10px;
   }
 </style>
 </head>
@@ -190,195 +169,266 @@
 <div class="wrap">
   <header>
     <h1>Home Plan (Yoga + Strength + Cardio)</h1>
-    <p class="sub">Simple weekly structure that’s easy to stick to. No gym required.</p>
+    <p class="sub">Tap a day to see exactly what to do. No gym required.</p>
     <div class="pillrow">
       <div class="pill">Yoga: Mon–Sat (~30 min)</div>
       <div class="pill">Strength: 2× / week</div>
       <div class="pill">Cardio: home-first</div>
-      <div class="pill">Goal: strength • flexibility • cardio fitness</div>
     </div>
   </header>
 
   <section class="card">
-    <h2>Weekly Schedule</h2>
+    <h2>Week at a Glance</h2>
+
     <div class="weekgrid">
+
+      <!-- Monday -->
       <div class="day">
         <div class="dayhead">
-          <div class="dow">Monday</div>
-          <div class="tag">Strength A day</div>
+          <div>
+            <div class="dow">Monday</div>
+          </div>
+          <div class="tag">Strength A</div>
         </div>
-        <ul class="items">
-          <li>Yoga (Adriene)</li>
-          <li>Strength A (20–40 min)</li>
-          <li>Optional: easy cardio (10–20 min)</li>
-        </ul>
-        <div class="checkline"><input id="mon" type="checkbox"><label for="mon">Done</label></div>
+
+        <div class="checkline">
+          <input id="mon" type="checkbox" />
+          <label for="mon"><strong>Done today</strong></label>
+        </div>
+
+        <details>
+          <summary>Today’s Plan</summary>
+          <ul class="list">
+            <li>Yoga (Adriene)</li>
+            <li>Strength A (20–40 min)</li>
+            <li>Optional: Easy cardio (10–20 min)</li>
+          </ul>
+          <div class="hint">
+            Low energy? Do <strong>1 round</strong> of Strength A and stop. That still counts.
+          </div>
+        </details>
+
+        <details>
+          <summary>Strength A (Full Body)</summary>
+          <p class="setnote"><strong>2–3 rounds</strong> • Rest ~60–90 sec • Controlled reps</p>
+          <ol class="list">
+            <li><strong>Goblet squat</strong> (DB/KB) — 8–12 reps</li>
+            <li><strong>DB Romanian deadlift</strong> — 8–12 reps</li>
+            <li><strong>DB floor press</strong> (or bench press) — 8–12 reps</li>
+            <li><strong>1-arm DB row</strong> — 8–10 reps/side</li>
+            <li><strong>Booty band lateral walks</strong> — 12–15 steps/side</li>
+            <li><strong>Plank</strong> or <strong>dead bug</strong> — 30–45 sec</li>
+          </ol>
+          <div class="hint">
+            Progression: if you hit the top rep range with great form, increase weight slightly next week.
+          </div>
+        </details>
+
+        <details>
+          <summary>Optional Cardio (Easy)</summary>
+          <p class="setnote">Choose 1 (10–20 minutes):</p>
+          <ul class="list">
+            <li>Brisk walk (conversation pace)</li>
+            <li>Bike (easy steady effort)</li>
+            <li>Easy stairs</li>
+          </ul>
+        </details>
       </div>
 
+      <!-- Tuesday -->
       <div class="day">
         <div class="dayhead">
-          <div class="dow">Tuesday</div>
+          <div><div class="dow">Tuesday</div></div>
           <div class="tag">Work 5–9 pm</div>
         </div>
-        <ul class="items">
-          <li>Yoga (Adriene)</li>
-          <li>That’s it — keep it easy</li>
-        </ul>
-        <div class="checkline"><input id="tue" type="checkbox"><label for="tue">Done</label></div>
+
+        <div class="checkline">
+          <input id="tue" type="checkbox" />
+          <label for="tue"><strong>Done today</strong></label>
+        </div>
+
+        <details>
+          <summary>Today’s Plan</summary>
+          <ul class="list">
+            <li>Yoga (Adriene)</li>
+            <li>That’s it — keep it easy</li>
+          </ul>
+          <div class="hint">
+            If you want movement: a gentle 10–20 minute walk is optional.
+          </div>
+        </details>
       </div>
 
+      <!-- Wednesday -->
       <div class="day">
         <div class="dayhead">
-          <div class="dow">Wednesday</div>
+          <div><div class="dow">Wednesday</div></div>
           <div class="tag">Optional cardio</div>
         </div>
-        <ul class="items">
-          <li>Yoga (Adriene)</li>
-          <li>Optional: Zone 2 cardio (20–40 min)</li>
-        </ul>
-        <div class="checkline"><input id="wed" type="checkbox"><label for="wed">Done</label></div>
-      </div>
 
-      <div class="day">
-        <div class="dayhead">
-          <div class="dow">Thursday</div>
-          <div class="tag">Strength B day</div>
+        <div class="checkline">
+          <input id="wed" type="checkbox" />
+          <label for="wed"><strong>Done today</strong></label>
         </div>
-        <ul class="items">
-          <li>Yoga (Adriene)</li>
-          <li>Strength B (20–40 min)</li>
-          <li>Short intervals (8–12 min) <span style="color:var(--muted)">(optional)</span></li>
-        </ul>
-        <div class="checkline"><input id="thu" type="checkbox"><label for="thu">Done</label></div>
+
+        <details>
+          <summary>Today’s Plan</summary>
+          <ul class="list">
+            <li>Yoga (Adriene)</li>
+            <li>Optional: Zone 2 cardio (20–40 min)</li>
+          </ul>
+          <div class="hint">
+            Zone 2 = you can talk in full sentences. Comfortable and steady.
+          </div>
+        </details>
+
+        <details>
+          <summary>Zone 2 Cardio Menu</summary>
+          <ul class="list">
+            <li>Brisk walk (20–40 min)</li>
+            <li>Bike (20–40 min)</li>
+            <li>Easy stairs (10–20 min)</li>
+          </ul>
+        </details>
       </div>
 
+      <!-- Thursday -->
       <div class="day">
         <div class="dayhead">
-          <div class="dow">Friday</div>
+          <div><div class="dow">Thursday</div></div>
+          <div class="tag">Strength B</div>
+        </div>
+
+        <div class="checkline">
+          <input id="thu" type="checkbox" />
+          <label for="thu"><strong>Done today</strong></label>
+        </div>
+
+        <details>
+          <summary>Today’s Plan</summary>
+          <ul class="list">
+            <li>Yoga (Adriene)</li>
+            <li>Strength B (20–40 min)</li>
+            <li>Optional: Short intervals (8–12 min)</li>
+          </ul>
+        </details>
+
+        <details>
+          <summary>Strength B (Full Body)</summary>
+          <p class="setnote"><strong>2–3 rounds</strong> • Rest ~60–90 sec • Posture crisp</p>
+          <ol class="list">
+            <li><strong>Reverse lunge</strong> (BW or DB) — 8 reps/side</li>
+            <li><strong>KB deadlift</strong> <em>or</em> <strong>KB swings</strong> — 10–15 reps</li>
+            <li><strong>Standing DB shoulder press</strong> — 8–10 reps</li>
+            <li><strong>Bent-over DB row</strong> — 8–12 reps</li>
+            <li><strong>Farmer carry</strong> (DB/KB) — 30–45 sec</li>
+            <li><strong>Side plank</strong> <em>or</em> <strong>bird dog</strong> — 30 sec/side</li>
+          </ol>
+          <div class="hint">
+            If swings don’t feel great that day, use KB deadlifts instead.
+          </div>
+        </details>
+
+        <details>
+          <summary>Optional Intervals (8–12 min)</summary>
+          <p class="setnote">Pick one:</p>
+          <ul class="list">
+            <li>30 sec fast walk + 90 sec easy × 5–8 rounds</li>
+            <li>Step-ups: 20 sec work + 40 sec rest × 8–12</li>
+            <li>KB swings: 20 sec on + 40 sec off × 8–12 (only if comfortable)</li>
+          </ul>
+          <div class="hint">
+            Keep intervals “spicy but doable.” Stop with gas left in the tank.
+          </div>
+        </details>
+      </div>
+
+      <!-- Friday -->
+      <div class="day">
+        <div class="dayhead">
+          <div><div class="dow">Friday</div></div>
           <div class="tag">Recovery-ish</div>
         </div>
-        <ul class="items">
-          <li>Yoga (Adriene)</li>
-          <li>Optional: easy walk 15–30 min</li>
-        </ul>
-        <div class="checkline"><input id="fri" type="checkbox"><label for="fri">Done</label></div>
+
+        <div class="checkline">
+          <input id="fri" type="checkbox" />
+          <label for="fri"><strong>Done today</strong></label>
+        </div>
+
+        <details>
+          <summary>Today’s Plan</summary>
+          <ul class="list">
+            <li>Yoga (Adriene)</li>
+            <li>Optional: easy walk 15–30 min</li>
+          </ul>
+        </details>
       </div>
 
+      <!-- Saturday -->
       <div class="day">
         <div class="dayhead">
-          <div class="dow">Saturday</div>
+          <div><div class="dow">Saturday</div></div>
           <div class="tag">Fun movement</div>
         </div>
-        <ul class="items">
-          <li>Yoga (Adriene)</li>
-          <li>Choose one: long walk / hike / bike / dance</li>
-        </ul>
-        <div class="checkline"><input id="sat" type="checkbox"><label for="sat">Done</label></div>
+
+        <div class="checkline">
+          <input id="sat" type="checkbox" />
+          <label for="sat"><strong>Done today</strong></label>
+        </div>
+
+        <details>
+          <summary>Today’s Plan</summary>
+          <ul class="list">
+            <li>Yoga (Adriene)</li>
+            <li>Choose one: long walk / hike / bike / dance</li>
+          </ul>
+          <div class="hint">
+            This is the “do something you like” day. Keep it enjoyable.
+          </div>
+        </details>
       </div>
 
+      <!-- Sunday -->
       <div class="day">
         <div class="dayhead">
-          <div class="dow">Sunday</div>
+          <div><div class="dow">Sunday</div></div>
           <div class="tag">Rest</div>
         </div>
-        <ul class="items">
-          <li>Rest</li>
-          <li>Or gentle walk + light stretch</li>
-        </ul>
-        <div class="checkline"><input id="sun" type="checkbox"><label for="sun">Done</label></div>
+
+        <div class="checkline">
+          <input id="sun" type="checkbox" />
+          <label for="sun"><strong>Done today</strong></label>
+        </div>
+
+        <details>
+          <summary>Today’s Plan</summary>
+          <ul class="list">
+            <li>Rest</li>
+            <li>Or gentle walk + light stretch</li>
+          </ul>
+          <div class="hint">
+            If you’re feeling “tight,” do 10 minutes of easy walking — then stop.
+          </div>
+        </details>
       </div>
+
     </div>
 
     <div class="btnrow">
       <button type="button" onclick="resetWeek()">Reset week</button>
-      <button type="button" onclick="expandAll()">Expand details</button>
-      <button type="button" onclick="collapseAll()">Collapse details</button>
+      <button type="button" onclick="expandAll()">Expand all days</button>
+      <button type="button" onclick="collapseAll()">Collapse all days</button>
     </div>
-    <p class="small">Tip: if energy is low, do <strong>one round</strong> of strength and call it a win.</p>
+
+    <p class="small">
+      Consistency rule: missed a day? Just continue. Don’t “make up” workouts.
+    </p>
   </section>
 
   <section class="card">
-    <h2>Workout Details</h2>
-
-    <details>
-      <summary>Strength A (Full Body)</summary>
-      <div class="workout">
-        <p class="setnote"><strong>2–3 rounds</strong> • Rest ~60–90 seconds between sets • Choose loads that feel challenging but controlled.</p>
-        <ol class="list">
-          <li><strong>Goblet squat</strong> (DB/KB) — 8–12 reps</li>
-          <li><strong>DB Romanian deadlift</strong> — 8–12 reps</li>
-          <li><strong>DB floor press</strong> (or bench press) — 8–12 reps</li>
-          <li><strong>1-arm DB row</strong> — 8–10 reps/side</li>
-          <li><strong>Booty band lateral walks</strong> — 12–15 steps/side</li>
-          <li><strong>Plank</strong> or <strong>dead bug</strong> — 30–45 sec</li>
-        </ol>
-        <div class="hint">
-          Progression: when you can hit the top end of reps with great form for all sets, increase weight slightly next week.
-        </div>
-      </div>
-    </details>
-
-    <details>
-      <summary>Strength B (Full Body)</summary>
-      <div class="workout">
-        <p class="setnote"><strong>2–3 rounds</strong> • Rest ~60–90 seconds • Keep posture crisp.</p>
-        <ol class="list">
-          <li><strong>Reverse lunge</strong> (BW or DB) — 8 reps/side</li>
-          <li><strong>KB deadlift</strong> <em>or</em> <strong>KB swings</strong> — 10–15 reps</li>
-          <li><strong>Standing DB shoulder press</strong> — 8–10 reps</li>
-          <li><strong>Bent-over DB row</strong> (both arms) — 8–12 reps</li>
-          <li><strong>Farmer carry</strong> (DB/KB) — 30–45 sec</li>
-          <li><strong>Side plank</strong> <em>or</em> <strong>bird dog</strong> — 30 sec/side</li>
-        </ol>
-        <div class="hint">
-          If swings aren’t feeling great that day, use KB deadlifts instead. Same benefit, lower “spice.”
-        </div>
-      </div>
-    </details>
-
-    <details>
-      <summary>Cardio Menu (Home)</summary>
-      <div class="workout">
-        <h3>Zone 2 (easy, 20–40 min)</h3>
-        <ul class="list">
-          <li>Brisk walk (conversation pace)</li>
-          <li>Bike (easy steady effort)</li>
-          <li>Stairs (easy steady effort)</li>
-        </ul>
-
-        <h3>Short intervals (8–15 min)</h3>
-        <ul class="list">
-          <li>30 sec fast walk + 90 sec easy × 5–8 rounds</li>
-          <li>Step-ups: 20 sec work + 40 sec rest × 8–12</li>
-          <li>KB swings (if comfortable): 20 sec on + 40 sec off × 8–12</li>
-        </ul>
-
-        <div class="hint">
-          Rule: cardio should leave you feeling better afterward. If it wipes you out, reduce duration first (not intensity).
-        </div>
-      </div>
-    </details>
-
-    <details>
-      <summary>Consistency + Progression Rules</summary>
-      <div class="workout">
-        <ul class="list">
-          <li><strong>Yoga stays daily</strong> (Mon–Sat). Strength is the add-on.</li>
-          <li>Low-energy day: do <strong>1 round</strong> only.</li>
-          <li>Missed workout: skip it. Don’t “make up” sessions.</li>
-          <li>Every 6–8 weeks: take a lighter week if needed.</li>
-        </ul>
-      </div>
-    </details>
-
-  </section>
-
-  <section class="card">
-    <h2>Quick “Too Busy” Option</h2>
+    <h2>Quick “Too Busy” Option (10–15 min)</h2>
     <div class="hint">
-      If time is tight, do this (10–15 min):<br><br>
-      <strong>1 round</strong> of: goblet squat (10) → DB row (8/side) → floor press (10) → plank (30 sec).
-      <br><br>
+      <strong>1 round</strong> of: goblet squat (10) → DB row (8/side) → floor press (10) → plank (30 sec).<br>
       Done. Keep the streak alive.
     </div>
   </section>
@@ -386,7 +436,7 @@
 </div>
 
 <script>
-  // Persist checkboxes
+  // Persist checkboxes in localStorage
   const cbIds = ["mon","tue","wed","thu","fri","sat","sun"];
   cbIds.forEach(id => {
     const el = document.getElementById(id);
