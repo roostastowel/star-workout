@@ -1,161 +1,329 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Strength • Flexibility • Cardio Plan</title>
-
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Home Plan • Strength + Yoga + Cardio</title>
 <style>
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 16px;
-    background: #fdecef;
-    color: #3a2a2f;
-}
+  :root{
+    --bg: #fdecef;
+    --card: #ffffff;
+    --ink: #3a2a2f;
+    --muted: #6b4b55;
+    --accent: #a8325e;
+    --accent2: #f3b6c8;
+    --shadow: rgba(168,50,94,0.14);
+  }
+  *{ box-sizing:border-box; }
+  body{
+    margin:0;
+    padding:16px;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,system-ui,Arial,sans-serif;
+    line-height:1.55;
+  }
+  .wrap{ max-width:860px; margin:0 auto; }
+  header{
+    text-align:center;
+    margin:8px 0 14px;
+  }
+  h1{
+    margin:6px 0 6px;
+    font-size:1.35rem;
+    color:var(--accent);
+    letter-spacing:0.2px;
+  }
+  .sub{
+    margin:0;
+    color:var(--muted);
+    font-size:0.95rem;
+  }
+  .pillrow{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    justify-content:center;
+    margin-top:10px;
+  }
+  .pill{
+    background:rgba(168,50,94,0.08);
+    border:1px solid rgba(168,50,94,0.18);
+    color:var(--accent);
+    padding:6px 10px;
+    border-radius:999px;
+    font-size:0.85rem;
+  }
 
-h1 {
-    text-align: center;
-    color: #a8325e;
-}
+  .card{
+    background:var(--card);
+    border-radius:16px;
+    box-shadow:0 6px 16px var(--shadow);
+    padding:14px;
+    margin:12px 0;
+    border:1px solid rgba(168,50,94,0.10);
+  }
+  .card h2{
+    margin:0 0 10px;
+    font-size:1.05rem;
+    color:var(--accent);
+  }
+  .hr{
+    height:1px;
+    background:linear-gradient(90deg, transparent, var(--accent2), transparent);
+    margin:10px 0;
+  }
 
-h2 {
-    color: #8f2d56;
-    border-bottom: 2px solid #f3b6c8;
-    padding-bottom: 4px;
-}
+  .weekgrid{
+    display:grid;
+    grid-template-columns: 1fr;
+    gap:10px;
+  }
+  @media (min-width:720px){
+    .weekgrid{ grid-template-columns: 1fr 1fr; }
+  }
 
-h3 {
-    color: #7a2948;
-}
+  .day{
+    border:1px solid rgba(168,50,94,0.12);
+    border-radius:14px;
+    padding:12px;
+    background:rgba(253,236,239,0.35);
+  }
+  .dayhead{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:6px;
+  }
+  .dow{
+    font-weight:700;
+    color:var(--accent);
+  }
+  .tag{
+    font-size:0.80rem;
+    color:var(--muted);
+  }
+  .items{
+    margin:0;
+    padding-left:18px;
+  }
+  .items li{ margin:5px 0; }
 
-.section {
-    background: #ffffff;
-    padding: 16px;
-    margin-bottom: 18px;
-    border-radius: 14px;
-    box-shadow: 0 4px 10px rgba(168,50,94,0.15);
-}
+  .checkline{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    margin:8px 0;
+  }
+  input[type="checkbox"]{
+    transform: translateY(2px) scale(1.15);
+    accent-color: var(--accent);
+  }
+  .btnrow{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:10px;
+  }
+  button{
+    border:1px solid rgba(168,50,94,0.25);
+    background:rgba(168,50,94,0.08);
+    color:var(--accent);
+    padding:9px 12px;
+    border-radius:12px;
+    font-weight:600;
+    cursor:pointer;
+  }
+  button:active{ transform:scale(0.99); }
 
-.day {
-    margin-bottom: 10px;
-}
+  details{
+    border:1px solid rgba(168,50,94,0.12);
+    border-radius:14px;
+    padding:10px 12px;
+    background:#fff;
+    margin:10px 0;
+  }
+  details[open]{ background:rgba(253,236,239,0.25); }
+  summary{
+    cursor:pointer;
+    font-weight:800;
+    color:var(--accent);
+    list-style:none;
+    outline:none;
+  }
+  summary::-webkit-details-marker{ display:none; }
+  .small{ color:var(--muted); font-size:0.92rem; margin:8px 0 0; }
 
-.exercise {
-    margin-left: 12px;
-}
-
-ul {
-    padding-left: 20px;
-}
-
-small {
-    color: #6b4b55;
-}
+  .workout{
+    margin-top:10px;
+    padding-top:8px;
+    border-top:1px dashed rgba(168,50,94,0.25);
+  }
+  .workout h3{
+    margin:10px 0 6px;
+    font-size:0.98rem;
+    color:#7a2948;
+  }
+  .setnote{
+    color:var(--muted);
+    font-size:0.90rem;
+    margin:0 0 8px;
+  }
+  .list{
+    margin:0;
+    padding-left:18px;
+  }
+  .list li{ margin:6px 0; }
+  .hint{
+    background:rgba(168,50,94,0.06);
+    border:1px solid rgba(168,50,94,0.12);
+    padding:10px 12px;
+    border-radius:12px;
+    color:var(--muted);
+    font-size:0.92rem;
+  }
 </style>
 </head>
 
 <body>
+<div class="wrap">
+  <header>
+    <h1>Home Plan (Yoga + Strength + Cardio)</h1>
+    <p class="sub">Simple weekly structure that’s easy to stick to. No gym required.</p>
+    <div class="pillrow">
+      <div class="pill">Yoga: Mon–Sat (~30 min)</div>
+      <div class="pill">Strength: 2× / week</div>
+      <div class="pill">Cardio: home-first</div>
+      <div class="pill">Goal: strength • flexibility • cardio fitness</div>
+    </div>
+  </header>
 
-<h1>Weekly Strength • Flexibility • Cardio Plan</h1>
+  <section class="card">
+    <h2>Weekly Schedule</h2>
+    <div class="weekgrid">
+      <div class="day">
+        <div class="dayhead">
+          <div class="dow">Monday</div>
+          <div class="tag">Strength A day</div>
+        </div>
+        <ul class="items">
+          <li>Yoga (Adriene)</li>
+          <li>Strength A (20–40 min)</li>
+          <li>Optional: easy cardio (10–20 min)</li>
+        </ul>
+        <div class="checkline"><input id="mon" type="checkbox"><label for="mon">Done</label></div>
+      </div>
 
-<div class="section">
-<p><strong>Focus:</strong> Strength, flexibility, cardiopulmonary fitness<br>
-<strong>Equipment:</strong> Dumbbells, kettlebells, booty band, bodyweight<br>
-<strong>Yoga:</strong> Yoga with Adriene — Monday through Saturday (~30 min)</p>
-</div>
+      <div class="day">
+        <div class="dayhead">
+          <div class="dow">Tuesday</div>
+          <div class="tag">Work 5–9 pm</div>
+        </div>
+        <ul class="items">
+          <li>Yoga (Adriene)</li>
+          <li>That’s it — keep it easy</li>
+        </ul>
+        <div class="checkline"><input id="tue" type="checkbox"><label for="tue">Done</label></div>
+      </div>
 
-<div class="section">
-<h2>Weekly Overview</h2>
+      <div class="day">
+        <div class="dayhead">
+          <div class="dow">Wednesday</div>
+          <div class="tag">Optional cardio</div>
+        </div>
+        <ul class="items">
+          <li>Yoga (Adriene)</li>
+          <li>Optional: Zone 2 cardio (20–40 min)</li>
+        </ul>
+        <div class="checkline"><input id="wed" type="checkbox"><label for="wed">Done</label></div>
+      </div>
 
-<div class="day"><strong>Monday</strong><br>
-Yoga + <strong>Strength A</strong> + optional short cardio</div>
+      <div class="day">
+        <div class="dayhead">
+          <div class="dow">Thursday</div>
+          <div class="tag">Strength B day</div>
+        </div>
+        <ul class="items">
+          <li>Yoga (Adriene)</li>
+          <li>Strength B (20–40 min)</li>
+          <li>Short intervals (8–12 min) <span style="color:var(--muted)">(optional)</span></li>
+        </ul>
+        <div class="checkline"><input id="thu" type="checkbox"><label for="thu">Done</label></div>
+      </div>
 
-<div class="day"><strong>Tuesday</strong><br>
-Yoga only (evening work day)</div>
+      <div class="day">
+        <div class="dayhead">
+          <div class="dow">Friday</div>
+          <div class="tag">Recovery-ish</div>
+        </div>
+        <ul class="items">
+          <li>Yoga (Adriene)</li>
+          <li>Optional: easy walk 15–30 min</li>
+        </ul>
+        <div class="checkline"><input id="fri" type="checkbox"><label for="fri">Done</label></div>
+      </div>
 
-<div class="day"><strong>Wednesday</strong><br>
-Yoga + optional easy cardio</div>
+      <div class="day">
+        <div class="dayhead">
+          <div class="dow">Saturday</div>
+          <div class="tag">Fun movement</div>
+        </div>
+        <ul class="items">
+          <li>Yoga (Adriene)</li>
+          <li>Choose one: long walk / hike / bike / dance</li>
+        </ul>
+        <div class="checkline"><input id="sat" type="checkbox"><label for="sat">Done</label></div>
+      </div>
 
-<div class="day"><strong>Thursday</strong><br>
-Yoga + <strong>Strength B</strong> + short cardio</div>
+      <div class="day">
+        <div class="dayhead">
+          <div class="dow">Sunday</div>
+          <div class="tag">Rest</div>
+        </div>
+        <ul class="items">
+          <li>Rest</li>
+          <li>Or gentle walk + light stretch</li>
+        </ul>
+        <div class="checkline"><input id="sun" type="checkbox"><label for="sun">Done</label></div>
+      </div>
+    </div>
 
-<div class="day"><strong>Friday</strong><br>
-Yoga only</div>
+    <div class="btnrow">
+      <button type="button" onclick="resetWeek()">Reset week</button>
+      <button type="button" onclick="expandAll()">Expand details</button>
+      <button type="button" onclick="collapseAll()">Collapse details</button>
+    </div>
+    <p class="small">Tip: if energy is low, do <strong>one round</strong> of strength and call it a win.</p>
+  </section>
 
-<div class="day"><strong>Saturday</strong><br>
-Yoga + optional fun movement</div>
+  <section class="card">
+    <h2>Workout Details</h2>
 
-<div class="day"><strong>Sunday</strong><br>
-Rest or gentle walk</div>
-</div>
+    <details>
+      <summary>Strength A (Full Body)</summary>
+      <div class="workout">
+        <p class="setnote"><strong>2–3 rounds</strong> • Rest ~60–90 seconds between sets • Choose loads that feel challenging but controlled.</p>
+        <ol class="list">
+          <li><strong>Goblet squat</strong> (DB/KB) — 8–12 reps</li>
+          <li><strong>DB Romanian deadlift</strong> — 8–12 reps</li>
+          <li><strong>DB floor press</strong> (or bench press) — 8–12 reps</li>
+          <li><strong>1-arm DB row</strong> — 8–10 reps/side</li>
+          <li><strong>Booty band lateral walks</strong> — 12–15 steps/side</li>
+          <li><strong>Plank</strong> or <strong>dead bug</strong> — 30–45 sec</li>
+        </ol>
+        <div class="hint">
+          Progression: when you can hit the top end of reps with great form for all sets, increase weight slightly next week.
+        </div>
+      </div>
+    </details>
 
-<div class="section">
-<h2>Strength A – Full Body</h2>
-<p>2–3 rounds • Rest ~60–90 sec</p>
-
-<div class="exercise">• Goblet squat — 8–12 reps</div>
-<div class="exercise">• Dumbbell Romanian deadlift — 8–12 reps</div>
-<div class="exercise">• Dumbbell floor or bench press — 8–12 reps</div>
-<div class="exercise">• One-arm dumbbell row — 8–10 / side</div>
-<div class="exercise">• Booty band lateral walks — 12–15 steps / side</div>
-<div class="exercise">• Plank or dead bug — 30–45 sec</div>
-
-<small>Progress when reps feel strong and controlled.</small>
-</div>
-
-<div class="section">
-<h2>Strength B – Full Body</h2>
-<p>2–3 rounds • Rest ~60–90 sec</p>
-
-<div class="exercise">• Reverse lunge — 8 reps / side</div>
-<div class="exercise">• Kettlebell deadlift or swings — 10–15 reps</div>
-<div class="exercise">• Standing DB shoulder press — 8–10 reps</div>
-<div class="exercise">• Bent-over DB row — 8–12 reps</div>
-<div class="exercise">• Farmer carries — 30–45 sec</div>
-<div class="exercise">• Side plank or bird dog — 30 sec / side</div>
-
-<small>Posture over weight.</small>
-</div>
-
-<div class="section">
-<h2>Cardio Options (Home)</h2>
-
-<h3>Easy / Zone 2</h3>
-<ul>
-<li>Brisk walking</li>
-<li>Stationary bike</li>
-<li>Easy stairs</li>
-</ul>
-
-<h3>Short Intervals</h3>
-<ul>
-<li>30s fast walk / 90s easy × 5–8</li>
-<li>KB swings or step-ups: 20s on / 40s off</li>
-</ul>
-
-<small>Cardio should feel energizing.</small>
-</div>
-
-<div class="section">
-<h2>Consistency Rules</h2>
-<ul>
-<li>Yoga stays daily</li>
-<li>Low energy = fewer rounds</li>
-<li>No “make-up” workouts</li>
-<li>Consistency beats intensity</li>
-</ul>
-</div>
-
-<div class="section">
-<h2>Progression</h2>
-<ul>
-<li>Add weight slowly</li>
-<li>Add a round after 3–4 weeks</li>
-<li>Deload every 6–8 weeks</li>
-</ul>
-</div>
-
-</body>
-</html>
+    <details>
+      <summary>Strength B (Full Body)</summary>
+      <div class="workout">
+        <p class="setnote"><strong>2–3 rounds</strong> • Rest ~60–90 seconds • Keep posture crisp.</p>
+        <ol class="list">
+          <li><strong>Reverse lunge</strong> (BW or DB) — 8 reps/side</li>
+          <li><strong>KB deadlift</strong> <em>or</em> <strong>KB swings</strong> — 10–15 reps</li>
+          <li><strong>Standing DB shoulder press</strong> — 8–10 reps</li>
+          <li><strong>Bent-over DB row</strong> (both
