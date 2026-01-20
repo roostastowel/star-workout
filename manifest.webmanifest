@@ -1,0 +1,9 @@
+{
+  "name": "Workout Plan",
+  "short_name": "Workout",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#fdecef",
+  "theme_color": "#a8325e",
+  "icons": []
+}
